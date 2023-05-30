@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+/*:root {*/
+/*  --tg-theme-bg-color: #cbc9c9; !* replace with the color you want for the background *!*/
+/*  --tg-theme-text-color: #000000; !* replace with the color you want for the text *!*/
+/*}*/
+
 body {
   background: var(--tg-theme-bg-color);
   color: var(--tg-theme-text-color);
