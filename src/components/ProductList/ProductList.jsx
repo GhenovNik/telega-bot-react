@@ -71,7 +71,7 @@ const ProductList = () => {
       totalPrice: getTotalPrice(addedItems),
       queryId,
     };
-    fetch("https://cheery-heliotrope-99f5ed.netlify.app", {
+    fetch("https://cheery-heliotrope-99f5ed.netlify.app/web-data", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
