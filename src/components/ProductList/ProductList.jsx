@@ -71,7 +71,7 @@ const ProductList = () => {
       totalPrice: getTotalPrice(addedItems),
       queryId,
     };
-    fetch("http://localhost:8000/web-data", {
+    fetch("https://cheery-heliotrope-99f5ed.netlify.app", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
