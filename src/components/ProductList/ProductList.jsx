@@ -55,12 +55,6 @@ const products = [
   },
 ];
 
-const getTotalPrice = (items = []) => {
-  return items.reduce((acc, item) => {
-    return (acc += item.price);
-  }, 0);
-};
-
 const ProductList = () => {
   const [addedItems, setAddedItems] = useState([]);
   const { tg, queryId } = useTelegram();
@@ -71,7 +65,7 @@ const ProductList = () => {
       totalPrice: getTotalPrice(addedItems),
       queryId,
     };
-    fetch("https://cheery-heliotrope-99f5ed.netlify.app/web-data", {
+    fetch("https://your-heroku-app-url.herokuapp.com/web-data", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -110,11 +104,11 @@ const ProductList = () => {
   };
 
   return (
-    <div className={"list"}>
-      {products.map((item) => (
-        <ProductItem product={item} onAdd={onAdd} className={"item"} />
-      ))}
-    </div>
+      <div className={"list"}>
+        {products.map((item) => (
+            <ProductItem key={item.id} product={item} onAdd={onAdd} className={"item"} />
+        ))}
+      </div>
   );
 };
 
