@@ -55,6 +55,12 @@ const products = [
   },
 ];
 
+const getTotalPrice = (items = []) => {
+  return items.reduce((acc, item) => {
+    return (acc += item.price);
+  }, 0);
+};
+
 const ProductList = () => {
   const [addedItems, setAddedItems] = useState([]);
   const { tg, queryId } = useTelegram();
@@ -65,7 +71,7 @@ const ProductList = () => {
       totalPrice: getTotalPrice(addedItems),
       queryId,
     };
-    fetch("https://your-heroku-app-url.herokuapp.com/web-data", {
+    fetch("https://git.heroku.com/aqueous-escarpment-40706.git/web-data", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -104,9 +110,9 @@ const ProductList = () => {
   };
 
   return (
-      <div className={"list"}>
+      <div className="list">
         {products.map((item) => (
-            <ProductItem key={item.id} product={item} onAdd={onAdd} className={"item"} />
+            <ProductItem key={item.id} product={item} onAdd={onAdd} className="item" />
         ))}
       </div>
   );
